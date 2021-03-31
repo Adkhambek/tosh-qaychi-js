@@ -14,58 +14,23 @@ let compscore = 0
 test.addEventListener('click',()=>{
     gamePhoto.forEach(value => {
         value.classList.add('animate__shakeY')
-        
     }) 
-
-  
     let random = Math.floor(Math.random()*3)
     let randomOption = optArr[random]
-     if (selectOption.value == 'tosh') {
-        if(randomOption == 'qaychi'){
-            gameTitle.textContent = 'Siz yutdingiz'
-            yourscore++
-            yourResult.textContent = yourscore
-            
-        }else if(randomOption == 'qog\'oz'){
-            gameTitle.textContent = 'Siz yutqazdingiz'
-            compscore++
-            computerResult.textContent = compscore
-            
-        }else{
-            gameTitle.textContent = 'Durrang natija'
-            
-        }
-        }else if(selectOption.value == 'qog\'oz'){
-            if(randomOption == 'qaychi'){
-                gameTitle.textContent = 'Siz yutqazdingiz'
-                compscore++
-                computerResult.textContent = compscore
-               
-            }else if(randomOption == 'tosh'){
-                gameTitle.textContent = 'Siz yutdingiz'
-                yourscore++
-                yourResult.textContent = yourscore
-            }else{
-                gameTitle.textContent = 'Durrang natija'
-            } 
-        }else{
-            if(randomOption == 'tosh'){
-                gameTitle.textContent = 'Siz yutqazdingiz'
-                compscore++
-                computerResult.textContent = compscore
-               
-            }else if(randomOption == 'qog\'oz'){
-                gameTitle.textContent = 'Siz yutdingiz'
-                yourscore++
-                yourResult.textContent = yourscore
-            }else{
-                gameTitle.textContent = 'Durrang natija'
-            } 
-        } 
-        yourGame.src = `./images/${selectOption.value}.png`
-        computerGame.src = `./images/${randomOption}.png`
+     
+        setTimeout(()=>{
+            score(selectOption.value, randomOption);
+            yourGame.src = `./images/${selectOption.value}.png`
+            computerGame.src = `./images/${randomOption}.png`
+            gamePhoto.forEach(value => {
+                value.classList.remove('animate__shakeY')
+            }) 
+        },1000)
+        
        
 })
+
+
 
 restart.addEventListener('click', ()=>{
     yourResult.textContent = 0
@@ -75,7 +40,54 @@ restart.addEventListener('click', ()=>{
     yourGame.src = './images/tosh.png'
     computerGame.src = './images/tosh.png'
 
-})
+}) 
+
+
+function score(yourOption, computerOption){
+    if (yourOption == 'tosh') {
+        if(computerOption == 'qaychi'){
+            gameTitle.textContent = 'Siz yutdingiz'
+            yourscore++
+            yourResult.textContent = yourscore
+           
+            
+        }else if(computerOption == 'qog\'oz'){
+            gameTitle.textContent = 'Siz yutqazdingiz'
+            compscore++
+            computerResult.textContent = compscore
+            
+        }else{
+            gameTitle.textContent = 'Durrang natija'
+            
+        }
+        }else if(yourOption == 'qog\'oz'){
+            if(computerOption == 'qaychi'){
+                gameTitle.textContent = 'Siz yutqazdingiz'
+                compscore++
+                computerResult.textContent = compscore
+               
+            }else if(computerOption == 'tosh'){
+                gameTitle.textContent = 'Siz yutdingiz'
+                yourscore++
+                yourResult.textContent = yourscore
+            }else{
+                gameTitle.textContent = 'Durrang natija'
+            } 
+        }else{
+            if(computerOption == 'tosh'){
+                gameTitle.textContent = 'Siz yutqazdingiz'
+                compscore++
+                computerResult.textContent = compscore
+               
+            }else if(computerOption == 'qog\'oz'){
+                gameTitle.textContent = 'Siz yutdingiz'
+                yourscore++
+                yourResult.textContent = yourscore
+            }else{
+                gameTitle.textContent = 'Durrang natija'
+            } 
+        } 
+}
 
 
 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-Game</title>
+    <link rel="stylesheet" href="./fonts/stylesheet.css">
+    <link rel="stylesheet" href="./css/animate.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body> 
+    <div class="game">
+        <button class="restart">Boshidan boshlash</button>
+        <h1 class="game-title">Quydagilardan birini tanlang:</h1>
+        <div class="game-result">
+            <div class="each-player">
+                <h2 class="player-name">Siz:</h2>
+                <p class="result you">0</p>
+            </div>
+            <div class="each-player">
+                <h2 class="player-name" >Kompyuter:</h2>
+                <p class="result computer">0</p>
+            </div>
+        </div>
+         <div class="game-area">
+            <div class="game-photo animate__animated">
+                <img class="your-game" src="./images/tosh.png" alt="game-photo">
+            </div>
+            <div class="game-photo animate__animated">
+                <img class="computer-game " src="./images/tosh.png" alt="game-photo">
+            </div>
+         </div>
+         <div class="options">
+             <select class="select-option">
+                 <option value="tosh">Tosh</option>
+                 <option value="qaychi">Qaychi</option>
+                 <option value="qog'oz">Qog'oz</option>
+             </select>
+             <button class="test">Tekshirish</button>
+         </div> 
+    </div>
+    
+   
+    <script src="./js/main.js"></script>
+</body>
+</html>
